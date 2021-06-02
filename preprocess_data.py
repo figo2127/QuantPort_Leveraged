@@ -29,6 +29,8 @@ def remove_data(data):
     open = []
     close = []
     volume = []
+    high = []
+    low = []
 
     # Loop through the stock data objects backwards and store factors we want to keep
     i_counter = 0
@@ -37,6 +39,8 @@ def remove_data(data):
         open.append(data['Open'][i])
         close.append(data['Close'][i])
         volume.append(data['Volume'][i])
+        high.append(data['High'][i])
+        low.append(data['Low'][i])
         i_counter += 1
 
     # Create a data frame for stock data
@@ -47,6 +51,9 @@ def remove_data(data):
     stocks['Open'] = open
     stocks['Close'] = pd.to_numeric(close)
     stocks['Volume'] = pd.to_numeric(volume)
+    stocks['High'] = pd.to_numeric(high)
+    stocks['Low'] = pd.to_numeric(low)
+
 
     # return new formatted data
     return stocks
