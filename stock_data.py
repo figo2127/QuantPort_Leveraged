@@ -82,10 +82,13 @@ def train_test_split_lstm(stocks, prediction_time=1, test_data_size=450, unroll_
     # test data
     x_test = stocks[0 - test_data_cut:-prediction_time].values
     y_test = stocks[prediction_time - test_data_cut:]['PCT_CHANGE'].values
-    y_test_close = stocks[prediction_time - test_data_cut:]['Close'].values
+    
+    y_test_close_base = stocks[0 - test_data_cut:-prediction_time]['Close'].values
+    y_test_close_actual = stocks[prediction_time - test_data_cut:]['Close'].values
 
 
-    return x_train, x_test, y_train, y_test, y_test_close
+
+    return x_train, x_test, y_train, y_test, y_test_close_base, y_test_close_actual
 
 
 def unroll(data, sequence_length=24):
