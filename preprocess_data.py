@@ -18,11 +18,9 @@ def get_normalised_data(data):
     return data
 
 
-def remove_data(data):
+def add_item_field(data):
     """
-    Remove columns from the data
-    :param data: a record of all the stock prices with columns as  ['Date','Open','High','Low','Close','Volume']
-    :return: a DataFrame with columns as  ['index','Open','Close','Volume']
+    Add item field to the data
     """
     # Define columns of data to keep from historical stock data
     item = []
